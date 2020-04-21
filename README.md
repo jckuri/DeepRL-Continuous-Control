@@ -1,5 +1,5 @@
-# DeepRL-Navigation
-Project 1 "Navigation" of the Deep Reinforcement Learning nanodegree.
+# DeepRL-Continuous-Control
+Project 2 "Continuous Control" of the Deep Reinforcement Learning nanodegree.
 
 ## Training Code
 
