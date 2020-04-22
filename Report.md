@@ -94,7 +94,7 @@ The rubric asks to obtain an average score of 30 for 100 episodes. The best mode
 
 ![Plot of rewards (training)](/images/plot-of-rewards-training.png)
 
-After training, the saved model was loaded and tested for 20 episodes. Here are the results of such testing. You can see that, on average, the scores are greater than 30. In the graph, the blue lines connect the scores in each episode.
+After training, the saved model was loaded and tested for 20 episodes. Here are the results of such testing. You can see that, on average, the scores are greater than 30. 
 
 ```
 Episode 1	Score: 38.63
@@ -118,6 +118,8 @@ Episode 18	Score: 32.18
 Episode 19	Score: 31.91
 Episode 20	Score: 36.68
 ```
+
+In the graph, the blue lines connect the scores in each episode. There is only 1 error at episode 17 in which the score drops to 15.25.
 
 ![Plot of rewards (testing)](/images/plot-of-rewards-testing.png)
 
