@@ -194,7 +194,7 @@ Finally, I found a bug in the Udacity's DDPG Pendulum project. After correcting 
 
 ## Plot of Rewards
 
-The DDPG Agent was trained for `168` episodes. In each episode, the agent is trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the Q-Network is trained with `BATCH_SIZE=128` experience tuples (SARS).
+The DDPG Agent was trained for `168` episodes. In each episode, the agent is trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the DDPG Agent is trained with `BATCH_SIZE=128` experience tuples (SARS).
 
 ```
 Episode 100	Average Score: 8.74
