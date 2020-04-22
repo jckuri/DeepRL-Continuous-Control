@@ -3,7 +3,7 @@ Project 1 "Navigation" of the Deep Reinforcement Learning nanodegree.
 
 ## Learning Algorithm
 
-To be honest, I copied and pasted the source code of the Jupyter notebook "Deep_Q_Network_Solution.ipynb" of Part 2. Value-Based Methods; Lesson 2: Deep Q-Networks; 7. Workspace. Because Udacity allows us to do it in Part 2: Value-Based Methods; Project: Navigation; 7. Not sure where to start?
+To be honest, I copied, pasted, and slightly modified the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum. Because Udacity recommends us to do it in Part 3: Policy-Based Methods; Project: Continuous Control; 7. Not sure where to start?
 
 <p align="center">
  <img src="/images/not-sure-where-to-start.png" width="50%">
@@ -28,11 +28,9 @@ In my presentation at http://bit.do/DeepRL, there is a great explanation of the 
  <img src="/images/math.png">
 </p>
 
-The solution code I copied uses:
-- Vanilla Deep Q-Network;
-- Double Deep Q-Network to avoid oscillations caused by overestimated Q-values;
+However, this Project 2 goes beyond DQN.
+
 - Experience Replay in order to keep training the Q-Network with past experiences;
-- Epsilon Greedy with geometric decay of 0.995, in order to balance exploration at the begining (epsilon=1) versus explotation at the end (epsilon=0.01);
 - Adam optimizer with learning rate of 5e-4;
 - BATCH_SIZE=64 (the number of experience tuples per training iteration);
 - GAMMA=0.99 (the Q-Network is aware of the intermediate future, but not the far future);
@@ -45,25 +43,19 @@ The deep neural network to represent complex continuous states has:
 
 ## Plot of Rewards
 
-The Q-Nework was trained for 706 episodes. In each episode, the agent is trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the Q-Network is trained with `BATCH_SIZE=64` experience tuples (SARS).
+The DDPG Agent was trained for `168` episodes. In each episode, the agent is trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the Q-Network is trained with `BATCH_SIZE=128` experience tuples (SARS).
 
 ```
-Episode 100	Average Score: 0.96
-Episode 200	Average Score: 4.39
-Episode 300	Average Score: 7.77
-Episode 400	Average Score: 10.41
-Episode 500	Average Score: 12.49
-Episode 600	Average Score: 14.25
-Episode 700	Average Score: 14.91
-Episode 706	Average Score: 15.07
-Environment solved in 606 episodes!	Average Score: 15.07
+Episode 100	Average Score: 8.74
+Episode 168	Average Score: 30.01
+Environment solved in 168 episodes!	Average Score: 30.01
 ```
 
-The rubric asks to obtain an average score of 13 for 100 episodes. I increased that value to 15. As a result, the Q-Network achieved an average score greater than 15 in 706 episodes of training. The best model was saved. In the graph, the blue lines connect the scores in each episode. Whereas the red lines connect the average scores in each episode.
+The rubric asks to obtain an average score of 30 for 100 episodes. The best model was saved. In the graph, the blue lines connect the scores in each episode. Whereas the red lines connect the average scores in each episode.
 
 ![Plot of rewards (training)](/images/plot-of-rewards-training.png)
 
-After training, the saved model was loaded and tested for 20 episodes. Here are the results of such testing. You can see that on average, the scores are greater than 15. In the graph, the blue lines connect the scores in each episode.
+After training, the saved model was loaded and tested for 20 episodes. Here are the results of such testing. You can see that on average, the scores are greater than 30. In the graph, the blue lines connect the scores in each episode.
 
 ![Plot of rewards (testing)](/images/plot-of-rewards-testing.png)
 
