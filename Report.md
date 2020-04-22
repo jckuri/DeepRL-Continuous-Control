@@ -165,7 +165,7 @@ I copied the initial weights of the local networks to the target networks. In th
             p1.data.copy_(p0.data)
 ```
 
-Moreover, I clipped the values of the critic to a maximum of `1`. This action was suggested by the video lecture in "Part 3. Policy-Based Methods; Lesson 4: Proximal Policy Optimization; 11. PPO Part 2: Clipping Policy Updates".
+Moreover, I clipped the values of the critic to a maximum of `1`. This action was suggested by the video lecture in `Part 3. Policy-Based Methods; Lesson 4: Proximal Policy Optimization; 11. PPO Part 2: Clipping Policy Updates`.
 
 ```
         # ---------------------------- update critic ---------------------------- #
