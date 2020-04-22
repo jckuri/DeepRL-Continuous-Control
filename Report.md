@@ -180,7 +180,7 @@ In the class of Ornstein-Uhlenbeck noise, I decreased the value of sigma a littl
     def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.1): # ADDED
 ```
 
-Finally, I found a bug in the Udacity's DDPG Pendulum project. After correcting this bug, the learning curve improved dramatically. In brief, sigma should be multiplied by a normal distribution, not a random distribution with range `[0,1)`, which is counterintuitive. In the previous and wrong version, the sigma factor only contributed in a positive way, without negative values. But I think negative values are also important. So, I corrected this bug and the learning curve improved in a radical way.
+Finally, I found a bug in the Udacity's DDPG Pendulum project. After correcting this bug, the learning curve improved dramatically. In brief, sigma should be multiplied by a normal distribution, and not by a random distribution with range `[0,1)`, which is counterintuitive. In the previous and wrong version, the sigma factor only contributed in a positive way, without negative values. But I think negative values are also important. So, I corrected this bug and the learning curve improved in a radical way.
 
 ```
     def sample(self):
