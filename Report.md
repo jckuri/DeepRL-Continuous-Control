@@ -34,7 +34,7 @@ However, this Project 2 goes beyond DQN. Because it includes new Deep RL techniq
 - **Two sets of Target and Local Networks**, which is a way to implement the double buffer technique in order to avoid oscillations caused by overestimated values;
 - **Soft Updates** instead of hard updates so that the values of the local networks are slowly transferred to the target networks;
 - **Replay Buffer** in order to keep training the DDPG Agent with past experiences;
-- **Ornstein-Uhlenbeck(O-U) Noise** which introduces some noise at training in order to make the network more robust and more complete.
+- **Ornstein-Uhlenbeck(O-U) Noise** which is introduced at training in order to make the network learn in a more robust and more complete way.
 
 Moreover, the DDPG Agent uses 2 deep neural networks to represent complex continuous states. 1 neural network for the actor and 1 neural network for the critic.
 
