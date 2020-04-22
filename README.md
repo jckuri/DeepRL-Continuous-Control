@@ -67,6 +67,12 @@ https://www.linkedin.com/in/jckuri/
 
 Follow the instructions in [Continuous_Control.ipynb](Continuous_Control.ipynb) to get started with training your own agent!
 
+To run the Jupyter notebook, use the following Unix command inside the project's directory:
+
+```
+jupyter notebook Continuous_Control.ipynb
+```
+
 To run all the cells in the Jupyter notebook again, go to the Jupyter notebook menu, and click on `Kernel` => `Restart & Run All`.
 
 At the end of the Jupyter notebook, there is a space in which you can program your own implementation of this DDPG Agent.
