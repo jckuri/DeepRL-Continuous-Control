@@ -237,7 +237,7 @@ In the graph, the blue lines connect the scores in each episode. There is only 1
 
 ## Ideas for Future Work
 
-I can improve this Q-Network because it is just a copy of the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum. I even copied the hyperparameters and I modified them just a little bit. I did an excellent job at meta-optimizing the hyperparameters. However, I should accept that there could be a better set of hyperparameters. Therefore, there is room for improvement.
+I can improve this DDPG Agent because it is just a copy of the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum. I even copied the hyperparameters and I modified them just a little bit. I did an excellent job at meta-optimizing the hyperparameters. However, I should accept that there could be a better set of hyperparameters. Therefore, there is room for improvement.
 
 So far, this implementation has only `5` techniques: 
 - Deep Deterministic Policy Gradients (DDPG);
