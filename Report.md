@@ -86,7 +86,7 @@ I copied, pasted, and slightly modified the source code of the Udacity repositor
 
 First, Udacity's DDPG uses OpenAI Gym and this project uses Unity to simulate the environment. Hence, I needed to modify the code in the Jupyter notebook to make it work properly.
 
-Then, I changed the number of hidden units: `fc1_units=128, fc2_units=128`
+Then, I changed the number of hidden units for the actor and the critic: `fc1_units=128, fc2_units=128`
 
 ```
     #def __init__(self, state_size, action_size, seed, fc1_units=400, fc2_units=300):
