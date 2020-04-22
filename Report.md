@@ -152,7 +152,7 @@ LR_ACTOR = 2e-4         # learning rate of the actor # ADDED
 LR_CRITIC = 2e-4        # learning rate of the critic # ADDED
 ```
 
-I copied the initial weights of the local networks to the target networks. In this way, the networks start with equal values. This action could improve the stability of the initial part of training.
+I copied the initial weights of the local networks to the target networks. In this way, local networks and target networks start with equal values. This action could improve the stability of the initial part of training.
 
 ```
         self.clone_weights(self.actor_target, self.actor_local) # ADDED
