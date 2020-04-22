@@ -47,7 +47,7 @@ The neural network for the actor has:
 - A linear fully-connected layer of dimensions fc2_units=128 and action_size=4;
 - The tanh function.
 
-The neural network for the citric has:
+The neural network for the critic has:
 - A linear fully-connected layer of dimensions state_size=33 and fcs1_units=128;
 - The ReLu function;
 - Batch normalization;
