@@ -58,13 +58,26 @@ The neural network for the citric has:
 This implementation has the following metaparameters:
 
 ```
-BUFFER_SIZE = int(1e5)  # replay buffer size (a very big database of SARS tuples)
-BATCH_SIZE = 128        # minibatch size (the number of experience tuples per training iteration)
-GAMMA = 0.99            # discount factor (the Q-Network is aware of the intermediate future, but not the far future)
-TAU = 1e-3              # for soft update of target parameters 
-LR_ACTOR = 2e-4         # learning rate of the actor 
-LR_CRITIC = 2e-4        # learning rate of the critic 
-WEIGHT_DECAY = 0        # L2 weight decay
+# replay buffer size (a very big database of SARS tuples)
+BUFFER_SIZE = int(1e5)  
+
+# minibatch size (the number of experience tuples per training iteration)
+BATCH_SIZE = 128        
+
+# discount factor (the Q-Network is aware of the intermediate future, but not the far future)
+GAMMA = 0.99            
+
+# for soft update of target parameters 
+TAU = 1e-3           
+
+# learning rate of the actor 
+LR_ACTOR = 2e-4         
+
+# learning rate of the critic 
+LR_CRITIC = 2e-4        
+
+# L2 weight decay
+WEIGHT_DECAY = 0        
 ```
 
 ## Plot of Rewards
