@@ -80,6 +80,93 @@ LR_CRITIC = 2e-4
 WEIGHT_DECAY = 0        
 ```
 
+### How I modified the Udacity's DDPG Pendulum to make this project work so well
+
+I copied, pasted, and slightly modified the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum.
+
+First, Udacity's DDPG uses OpenAI Gym and this project uses Unity to simulate the environment. Hence, I needed to modify the code in the Jupyter notebook to make it work properly.
+
+Then, I changed the number of hidden units: `fc1_units=128, fc2_units=128`
+
+```
+    #def __init__(self, state_size, action_size, seed, fc1_units=400, fc2_units=300):
+    def __init__(self, state_size, action_size, seed, fc1_units=128, fc2_units=128): # ADDED
+```
+
+```
+    #def __init__(self, state_size, action_size, seed, fcs1_units=400, fc2_units=300):
+    def __init__(self, state_size, action_size, seed, fcs1_units=128, fc2_units=128): # ADDED
+```
+
+I added batch normalization after the first layer of the actor:
+
+```
+        super(Actor, self).__init__()
+        self.seed = torch.manual_seed(seed)
+        self.fc1 = nn.Linear(state_size, fc1_units)
+        self.fc2 = nn.Linear(fc1_units, fc2_units)
+        self.fc3 = nn.Linear(fc2_units, action_size)
+        self.bn1 = nn.BatchNorm1d(fc1_units) # ADDED
+        self.reset_parameters()
+```
+
+```
+    def forward(self, state):
+        """Build an actor (policy) network that maps states -> actions."""
+        if state.dim() == 1: state = torch.unsqueeze(state,0) # ADDED
+        x = F.relu(self.fc1(state))
+        x = self.bn1(x) # ADDED
+        x = F.relu(self.fc2(x))
+        return F.tanh(self.fc3(x))
+```
+
+I added batch normalization after the first layer of the critic:
+
+```
+        super(Critic, self).__init__()
+        self.seed = torch.manual_seed(seed)
+        self.fcs1 = nn.Linear(state_size, fcs1_units)
+        self.fc2 = nn.Linear(fcs1_units+action_size, fc2_units)
+        self.fc3 = nn.Linear(fc2_units, 1)
+        self.bn1 = nn.BatchNorm1d(fcs1_units) # ADDED
+        self.reset_parameters()
+```
+
+```
+    def forward(self, state, action):
+        """Build a critic (value) network that maps (state, action) pairs -> Q-values."""
+        if state.dim() == 1: state = torch.unsqueeze(state,0) # ADDED
+        xs = F.relu(self.fcs1(state))
+        xs = self.bn1(xs) # ADDED
+        x = torch.cat((xs, action), dim=1)
+        x = F.relu(self.fc2(x))
+        return self.fc3(x)
+```
+
+I changed the learning rates of the actor and the critic to `2e-4`:
+
+```
+#LR_ACTOR = 1e-4         # learning rate of the actor
+#LR_CRITIC = 1e-3        # learning rate of the critic
+LR_ACTOR = 2e-4         # learning rate of the actor # ADDED
+LR_CRITIC = 2e-4        # learning rate of the critic # ADDED
+```
+
+I copied the initial weights of the local networks to the target networks. In this way, the networks start with equal values. This action could improve the stability of the initial part of training.
+
+```
+        self.clone_weights(self.actor_target, self.actor_local) # ADDED
+        self.clone_weights(self.critic_target, self.critic_local) # ADDED
+```
+
+```
+    def clone_weights(self, w1, w0): # ADDED
+        for p1, p0 in zip(w1.parameters(), w0.parameters()):
+            p1.data.copy_(p0.data)
+```
+
+
+
 ## Plot of Rewards
 
 The DDPG Agent was trained for `168` episodes. In each episode, the agent is trained from the begining to the end of the simulation. Some episodes are larger and some episodes are shorter, depending when the ending condition of each episode appears. Each episode has many iterations. In each iteration, the Q-Network is trained with `BATCH_SIZE=128` experience tuples (SARS).
