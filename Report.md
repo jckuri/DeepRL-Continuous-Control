@@ -119,7 +119,7 @@ Episode 19	Score: 31.91
 Episode 20	Score: 36.68
 ```
 
-In the graph, the blue lines connect the scores in each episode. There is only 1 error at episode 17 in which the score drops to 15.25.
+In the graph, the blue lines connect the scores in each episode. There is only 1 error at episode `17` in which the score drops to `15.25`. All the other scores are greater than `30`.
 
 ![Plot of rewards (testing)](/images/plot-of-rewards-testing.png)
 
