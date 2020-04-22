@@ -25,6 +25,8 @@ The observation space consists of 33 variables corresponding to position, rotati
 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +30 over 100 consecutive episodes.
 
+![Plot of rewards (training)](/images/plot-of-rewards-training.png)
+
 ## Getting Started
 
 Follow the instructions in this link in order to install all the dependencies required to run this project:<br/>
