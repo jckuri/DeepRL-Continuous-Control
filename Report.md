@@ -28,18 +28,44 @@ In my presentation at http://bit.do/DeepRL, there is a great explanation of the 
  <img src="/images/math.png">
 </p>
 
-However, this Project 2 goes beyond DQN.
+However, this Project 2 goes beyond DQN. Because it includes new Deep RL techniques:
+- **Actor-critic method** in which the actor computes policies to act and the critic helps to correct the policies based on its Q-values;
+- **Deep Deterministic Policy Gradients (DDPG)**, which is similar to actor-critic methods but it differs because the actor produces a deterministic policy instead of stochastic policies; the critic evaluates such deterministic policy; and the actor is trained by using the deterministic policy gradient algorithm;
+- **Two sets of Target and Local Networks**, which is a way to implement the double buffer technique in order to avoid oscillations caused by overestimated values;
+- **Soft Updates** instead of hard updates so that the values of the local networks are slowing transferred to the target networks;
+- **Replay Buffer** in order to keep training the DDPG Agent with past experiences;
+- **Ornstein-Uhlenbeck(O-U) Noise** which introduces some noise at training in order to make the network more robust and complete.
 
-- Experience Replay in order to keep training the Q-Network with past experiences;
-- Adam optimizer with learning rate of 5e-4;
-- BATCH_SIZE=64 (the number of experience tuples per training iteration);
-- GAMMA=0.99 (the Q-Network is aware of the intermediate future, but not the far future);
-- A deep neural network to represent complex continuous states.
+Moreover, the DDPG Agent uses 2 deep neural networks to represent complex continuous states. 1 neural network for the actor and 1 neural network for the critic.
 
-The deep neural network to represent complex continuous states has:
-- A linear fully-connected layer of dimensions state_size=37 and fc1_units=64;
-- A linear fully-connected layer of dimensions fc1_units=64 and fc2_units=64;
-- A linear fully-connected layer of dimensions fc2_units=64 and action_size=4.
+The neural network for the actor has:
+- A linear fully-connected layer of dimensions state_size=33 and fc1_units=128;
+- The ReLu function;
+- Batch normalization;
+- A linear fully-connected layer of dimensions fc1_units=128 and fc2_units=128;
+- The ReLu function;
+- A linear fully-connected layer of dimensions fc2_units=128 and action_size=4;
+- The tanh function.
+
+The neural network for the citric has:
+- A linear fully-connected layer of dimensions state_size=33 and fcs1_units=128;
+- The ReLu function;
+- Batch normalization;
+- A linear fully-connected layer of dimensions fcs1_units=128 + 4 and fc2_units=128;
+- The ReLu function;
+- A linear fully-connected layer of dimensions fc2_units=128 and output_size=1;
+
+This implementation has the following metaparameters:
+
+```
+BUFFER_SIZE = int(1e5)  # replay buffer size (a very big database of SARS tuples)
+BATCH_SIZE = 128        # minibatch size (the number of experience tuples per training iteration)
+GAMMA = 0.99            # discount factor (the Q-Network is aware of the intermediate future, but not the far future)
+TAU = 1e-3              # for soft update of target parameters 
+LR_ACTOR = 2e-4         # learning rate of the actor 
+LR_CRITIC = 2e-4        # learning rate of the critic 
+WEIGHT_DECAY = 0        # L2 weight decay
+```
 
 ## Plot of Rewards
 
