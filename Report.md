@@ -3,7 +3,7 @@ Project 2 "Continuous Control" of the Deep Reinforcement Learning nanodegree.
 
 ## Learning Algorithm
 
-To be honest, I copied, pasted, and slightly modified the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum. Because Udacity recommends us to do it in Part 3: Policy-Based Methods; Project: Continuous Control; 7. Not sure where to start?
+To be honest, I copied, pasted, and slightly modified the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum. Because Udacity recommends us to do it in `Part 3: Policy-Based Methods; Project: Continuous Control; 7. Not sure where to start?`
 
 <p align="center">
  <img src="/images/not-sure-where-to-start.png" width="50%">
