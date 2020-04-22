@@ -125,13 +125,16 @@ In the graph, the blue lines connect the scores in each episode. There is only 1
 
 ## Ideas for Future Work
 
-I can improve this Q-Network because it is just a copy of the source code of the Jupyter notebook "Deep_Q_Network_Solution.ipynb" of Part 2. Value-Based Methods; Lesson 2: Deep Q-Networks; 7. Workspace. I even copied the hyperparameters. Hence, I can improve the performance of this Q-Network by doing a meta-optimization of parameters.
+I can improve this Q-Network because it is just a copy of the source code of the Udacity repository https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-pendulum. I even copied the hyperparameters and I modified them just a little bit. I did an excellent job at meta-optimizing the hyperparameters. However, I should accept that there could be a better set of hyperparameters. Therefore, there is room for improvement.
 
-So far, this implementation only has 2 extensions to the original DQN algorithm: Experience Replay and Double DQN. I can implement all the other extensions of DeepMind's Rainbow architecture in order to make this Q-Network converge faster and find a better local optimum:
-- Prioritized experience replay;
-- Dueling DQN;
-- Learning from multi-step bootstrap targets (as in A3C);
-- Distributional DQN;
-- Noisy DQN.
+So far, this implementation has only `5` techniques: 
+- Deep Deterministic Policy Gradients (DDPG);
+- Two sets of Target and Local Networks;
+- Soft Updates;
+- Replay Buffer;
+- Ornstein-Uhlenbeck(O-U) Noise.
 
-Perhaps learning from pixels could produce much better results than the low-resolution states produced by ray-tracing sensors.
+Future implementations can be improved by applying the following techniques:
+- **Prioritized** experience replay;
+- Distributed learning with multiple independent agents (TRPO, PPO, A3C, and A2C);
+- Q-prop algorithm, which combines both off-policy and on-policy learning.
