@@ -11,7 +11,7 @@ You can find the saved model weights here: [checkpoint_actor.pth](checkpoint_act
 
 ## Project Details
 
-For this project, you will work with the Reacher environment.
+For this project, you will work with the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment.
 
 <p align="center">
  <img src="/images/reacher.gif">
