@@ -32,7 +32,7 @@ However, this Project 2 goes beyond DQN. Because it includes new Deep RL techniq
 - **Actor-critic method** in which the actor computes policies to act and the critic helps to correct the policies based on its Q-values;
 - **Deep Deterministic Policy Gradients (DDPG)**, which is similar to actor-critic methods but it differs because the actor produces a deterministic policy instead of stochastic policies; the critic evaluates such deterministic policy; and the actor is trained by using the deterministic policy gradient algorithm;
 - **Two sets of Target and Local Networks**, which is a way to implement the double buffer technique in order to avoid oscillations caused by overestimated values;
-- **Soft Updates** instead of hard updates so that the values of the local networks are slowing transferred to the target networks;
+- **Soft Updates** instead of hard updates so that the values of the local networks are slowly transferred to the target networks;
 - **Replay Buffer** in order to keep training the DDPG Agent with past experiences;
 - **Ornstein-Uhlenbeck(O-U) Noise** which introduces some noise at training in order to make the network more robust and more complete.
 
