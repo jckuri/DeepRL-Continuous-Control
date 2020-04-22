@@ -3,30 +3,27 @@ Project 2 "Continuous Control" of the Deep Reinforcement Learning nanodegree.
 
 ## Training Code
 
-You can find the training code here: [Navigation.ipynb](Navigation.ipynb) and [dqn_agent.py](dqn_agent.py)
+You can find the training code here: [Continuous_Control.ipynb](Continuous_Control.ipynb), [ddpg_agent.py](ddpg_agent.py), and [model.py](model.py).
 
 ## Saved Model Weights
 
-You can find the saved model weights here: [checkpoint.pth](checkpoint.pth)
+You can find the saved model weights here: [checkpoint_actor.pth](checkpoint_actor.pth) and [checkpoint_critic.pth](checkpoint_critic.pth).
 
 ## Project Details
 
-For this project, you will train an agent to navigate (and collect bananas!) in a large, square world.
+For this project, you will work with the Reacher environment.
 
 <p align="center">
- <img src="/images/bananas.gif">
+ <img src="/images/reacher.gif">
 </p>
 
-A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. Thus, the goal of your agent is to collect as many yellow bananas as possible while avoiding blue bananas.
+In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
 
-The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around agent's forward direction. Given this information, the agent has to learn how to best select actions. Four discrete actions are available, corresponding to:
+The observation space consists of 33 variables corresponding to position, rotation, velocity, and angular velocities of the arm. Each action is a vector with four numbers, corresponding to torque applicable to two joints. Every entry in the action vector should be a number between -1 and 1.
 
-    0 - move forward.
-    1 - move backward.
-    2 - turn left.
-    3 - turn right.
+**Option 1: Solve the First Version**
 
-The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
+The task is episodic, and in order to solve the environment, your agent must get an average score of +30 over 100 consecutive episodes.
 
 ## Getting Started
 
