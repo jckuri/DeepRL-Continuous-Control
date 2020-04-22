@@ -1,5 +1,5 @@
 # DeepRL-Navigation
-Project 1 "Navigation" of the Deep Reinforcement Learning nanodegree.
+Project 2 "Continuous Control" of the Deep Reinforcement Learning nanodegree.
 
 ## Learning Algorithm
 
@@ -173,7 +173,24 @@ Moreover, I clipped the values of the critic to a maximum of `1`. This action wa
         torch.nn.utils.clip_grad_norm_(self.critic_local.parameters(), 1) # ADDED
 ```
 
+In the class of Ornstein-Uhlenbeck noise, I decreased the value of sigma a little bit:
 
+```
+    #def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.2):
+    def __init__(self, size, seed, mu=0., theta=0.15, sigma=0.1): # ADDED
+```
+
+Finally, I found a bug in the Udacity's DDPG Pendulum project. After correcting this bug, the learning curve improved dramatically. In brief, sigma should be multiplied by a normal distribution, not a random distribution with range `[0,1)`, which is counterintuitive. In the previous and wrong version, the sigma factor only contributed in a positive way, without negative values. But I think negative values are also important. So, I corrected this bug and the learning curve improved in a radical way.
+
+```
+    def sample(self):
+        """Update internal state and return it as a noise sample."""
+        x = self.state
+        #dx = self.theta * (self.mu - x) + self.sigma * np.array([random.random() for i in range(len(x))])
+        dx = self.theta * (self.mu - x) + self.sigma * np.random.randn(len(x)) # ADDED
+        self.state = x + dx
+        return self.state
+```
 
 ## Plot of Rewards
 
